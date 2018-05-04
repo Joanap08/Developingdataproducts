@@ -1,0 +1,121 @@
+---
+title: "Project Week 4"
+author: "Joana"
+date: "4 May 2018"
+output: ioslides_presentation
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Data description
+<font size="3">
+Standardized fertility measure and socio-economic indicators for each of 47 French-speaking provinces of Switzerland at about 1888.
+We have chosen SWISS dataset in R to visualize a potential relationship between its variables. 
+
+1. Fertility	Ig, 'common standardized fertility measure'
+2. Agriculture	% of males involved in agriculture as occupation
+3. Examination	% draftees receiving highest mark on army examination
+4. Education	% education beyond primary school for draftees.
+5. Catholic	% 'catholic' (as opposed to 'protestant').
+6. Infant.Mortality	live births who live less than 1 year.
+
+Here, all variables are scaled to [0, 100], where in the original, all but "Catholic" were scaled to [0, 1]
+</font>
+
+## Aim
+<h4>
+**Goal**
+</h4>
+<h6>
+Scatterplot of all the variables to check a possible relationship between its variables.
+</h6>
+<br>
+<h4>
+**How does it work:**
+</h4>
+</h6>
+1. The user can select what variables he shall wish to look for a relationship.
+
+2. Simultaneously the app will plot the linear regression analysis of such association.
+</h6>
+
+## App Visualization
+<h4>
+**Visualize the app**
+</h4>
+
+<h6>
+To visualize the app, please redirect yourself to:
+
+https://joanap08.shinyapps.io/swiss/
+</h6>
+
+## Interactive Plot
+<h6>
+In this  slide you are able to check pre-sample of the app
+</h6>
+```{r swiss}
+library(ggplot2)
+inputPanel(
+      radioButtons("x", "Select X-axis:",
+                   list("Fertility"='a', "Agriculture"='b', "Examination"='c', "Education"='d',"Catholic"='e',"Infant.Mortality"='f')),
+      radioButtons("y", "Select Y-axis:",
+                   list("Fertility"='g', "Agriculture"='h', "Examination"='i', "Education"='j',"Catholic"='k',"Infant.Mortality"='l'))
+)
+
+renderPlot({
+    if(input$x=='a'){
+      i<-1
+    }
+    
+    if(input$x=='b'){
+      i<-2
+    }
+    
+    if(input$x=='c'){
+      i<-3
+    }
+    
+    if(input$x=='d'){
+      i<-4
+    }
+    
+    if(input$x=='e'){
+      i<-5
+    }
+    
+    if(input$x=='f'){
+      i<-6
+    }
+    
+    if(input$y=='g'){
+      j<-1
+    }
+    
+    if(input$y=='h'){
+      j<-2
+    }
+    if(input$y=='i'){
+      j<-3
+    }
+    if(input$y=='j'){
+      j<-4
+    }
+    if(input$y=='k'){
+      j<-5
+    }
+    if(input$y=='l'){
+      j<-6
+    }
+    s    <- swiss[, i]
+    k    <- swiss[, j]
+    qplot(s,k,main="Relationship between Variables in the Swiss dataset",geom=c("point", "smooth"),xlab ="",ylab="" )
+  
+})
+
+```
+
+
