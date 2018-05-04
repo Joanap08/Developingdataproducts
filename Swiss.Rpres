@@ -1,0 +1,56 @@
+Relationship between the different variables in SWISS dataset
+========================================================
+author: Joana
+date: 03/05/2018
+autosize: true
+
+**Overview**
+========================================================
+**Data description**
+
+Standardized fertility measure and socio-economic indicators for each of 47 French-speaking provinces of Switzerland at about 1888.
+We have chosen SWISS dataset in R to visualize a potential relationship between its variables. 
+
+1. Fertility	Ig, 'common standardized fertility measure'
+2. Agriculture	% of males involved in agriculture as occupation
+3. Examination	% draftees receiving highest mark on army examination
+4. Education	% education beyond primary school for draftees.
+5. Catholic	% 'catholic' (as opposed to 'protestant').
+6. Infant.Mortality	live births who live less than 1 year.
+
+Here, all variables are scaled to [0, 100], where in the original, all but "Catholic" were scaled to [0, 1]
+
+**Aim**
+========================================================
+Summary of the data selected
+```{r}
+summary(swiss)
+```
+
+**Goal**
+
+Scatterplot of all the variables to check a possible relationship between its variables.
+
+**How does it work:**
+
+1. The user can select what variables he shall wish to look for a relationship.
+
+2. Simultaneously the app will plot the linear regression analysis of such association.
+
+**App Visualization**
+========================================================
+
+**Visualize the app**
+
+To visualize the app, please redirect yourself to:
+
+https://joanap08.shinyapps.io/swiss/
+
+========================================================
+
+Thank you
+
+```{r}
+publish(title = 'week4 developing data products', 'index.html', host = 'rpubs')
+```
+
