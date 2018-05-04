@@ -50,7 +50,5 @@ https://joanap08.shinyapps.io/swiss/
 
 Thank you
 
-```{r}
-publish(title = 'week4 developing data products', 'index.html', host = 'rpubs')
-```
+publish(user = "joanap08", repo = "Developingdataproducts")
 
